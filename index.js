@@ -62,18 +62,6 @@ const sum = add(12, 345);
 const doubleResult = double(sum);
 console.log("🚀 ~ doubleResult:", doubleResult);
 
-function validCheck(text) {
-  // 유효성 체크
-  const check = text !== ""; // boolean
-  if (check === false) {
-    return;
-  }
-
-  console.log("유효한 값입니다");
-}
-
-validCheck("후츠릿");
-
 console.log("==================");
 
 // 조건문
@@ -101,3 +89,169 @@ console.log(score >= 60 ? "합격" : "불합격");
 // }
 
 console.log("끝!!!");
+
+const checkValidText = (userInput) => {
+  // 유효성 체크하여 boolean값 반환
+  let isValid = true;
+  if (!userInput) {
+    // 사용자가 값을 입력하지 않은경우
+    console.log("사용자가 값을 입력하지 않음");
+    isValid = false;
+    // alert("값을 입력해주세요");
+  } else {
+    // 사용자가 값을 입력한 경우
+    console.log("사용자가 값을 입력함");
+    isValid = true;
+  }
+
+  return isValid;
+};
+
+console.log("checkValidText=>", checkValidText());
+
+// if (undefined) {
+//   console.log("조건식이 true인 경우");
+// } else {
+//   console.log("조건식이 false인 경우");
+// }
+
+// 여기에 orderSandwich 함수를 작성하세요
+// orderSandwich 함수는 type 매개변수를 받고 타입에 따라 다른 재료를 반환해야 합니다
+
+const orderSandwich = (type = "basic") =>
+  type === "basic" ? "🥖 + 🥬 + 🍅 + 🧀 + 🥓" : "🥖 + 🥬 + 🍅 + 🥑 + 🥒";
+
+// 함수 테스트 - 아래 코드는 수정하지 마세요
+console.log("기본 샌드위치 주문: " + orderSandwich());
+console.log("기본 샌드위치 주문: " + orderSandwich("basic"));
+console.log("비건 샌드위치 주문: " + orderSandwich("vegan"));
+
+/* 예상 결과:
+기본 샌드위치 주문: 🥖 + 🥬 + 🍅 + 🧀 + 🥓
+기본 샌드위치 주문: 🥖 + 🥬 + 🍅 + 🧀 + 🥓
+비건 샌드위치 주문: 🥖 + 🥬 + 🍅 + 🥑 + 🥒
+*/
+
+console.log("=".repeat(30));
+
+// 배열
+const daysOfWeek = [
+  "월요일",
+  "화요일",
+  "수요일",
+  "목요일",
+  "금요일",
+  "토요일",
+  "일요일",
+];
+console.log("🚀 ~ daysOfWeek:", daysOfWeek);
+
+const tue = daysOfWeek[1];
+console.log("🚀 ~ tue:", tue);
+
+const students = ["정효진", "김재명", "이준범", "정다운", "김현모", "김다솜"];
+// 1. 내 이름을 뽑아와서 me라는 변수에 할당하기
+// 2. me라는 변수를 console에 찍어보기
+const me = students[students.length - 1];
+console.log("🚀 ~ me:", me);
+
+// 학생 정보
+const studentName = "김재명";
+const studentGender = "Male";
+const studentAttendanceCheck = true;
+
+const studentInfo = {
+  name: "김재명",
+  gender: "Male",
+  attendanceCheck: true,
+};
+
+const key = "gender";
+console.log("🚀 ~ studentInfo:", studentInfo);
+console.log("name: ", studentInfo.name);
+console.log("name: ", studentInfo[key]);
+
+const studentList = [
+  {
+    name: "김재명",
+    gender: "Male",
+    attendanceCheck: true,
+  },
+  {
+    name: "정효진",
+    gender: "FeMale",
+    attendanceCheck: true,
+  },
+  {
+    name: "이준범",
+    gender: "Male",
+    attendanceCheck: true,
+  },
+  {
+    name: "김현모",
+    gender: "Male",
+    attendanceCheck: true,
+  },
+  {
+    name: "정다운",
+    gender: "Male",
+    attendanceCheck: true,
+  },
+  {
+    name: "김다솜",
+    gender: "Male",
+    attendanceCheck: true,
+  },
+];
+
+console.log("studentList갯수", studentList.length);
+console.log(studentList[1].name);
+
+// for (let i = 0; i < studentList.length; i++) {
+//   console.log(`${i + 1}번째 학생이름: ${studentList[i].name}`);
+// }
+
+studentList.forEach((value) => {
+  console.log("🚀 ~ value:", value.name);
+});
+
+// const studentNames = ["김재명", "정효진", ...]
+
+// map
+let studentNames = studentList.map((value) => value.name);
+console.log("🚀 ~ studentNames:", studentNames);
+
+studentNames = studentNames.map((value) => value + "🔥"); // 원본배열과 갯수가 동일
+console.log("🚀 ~ studentNames:", studentNames);
+
+// filter
+const filterNames = studentNames.filter((name) => name[0] === "최"); // 원본배열과 갯수가 동일하지 않을수 있음
+console.log("🚀 ~ filterNames:", filterNames);
+
+// find
+const filterName = studentNames.find((name) => name[0] === "정");
+console.log("🚀 ~ filterName:", filterName);
+
+const isLastNameCheck = studentNames.some((name) => name[0] === "정");
+console.log("🚀 ~ isLastNameCheck:", isLastNameCheck);
+
+// let i = 0;
+// for (i = 0; i < 100; i++) {
+//   console.log(`${i}번째 실행`);
+// }
+
+// console.log("반복문 끝");
+// console.log("i==> ", i);
+
+const h1El = document.querySelector(".title");
+const buttonEl = document.querySelector("button");
+// console.log("🚀 ~ h1El:", h1El);
+
+const changeH1 = () => {
+  h1El.innerText = "JavaScript";
+  h1El.style.color = "red";
+};
+
+buttonEl.addEventListener("click", changeH1);
+
+console.dir(h1El);
