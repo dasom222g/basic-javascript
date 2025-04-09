@@ -255,3 +255,89 @@ const changeH1 = () => {
 buttonEl.addEventListener("click", changeH1);
 
 console.dir(h1El);
+
+console.log("=".repeat(30));
+
+// Logical operators (단축 평가 논리 계산법)
+const user = {
+  isLoggedIn: true, // 로그인 여부
+  role: "admin", // "guest", "user"
+  age: 10,
+  hasParentalConsent: true, // 부모의 동의를 받았는지 체크
+};
+
+// let canAccessAdminPage; // 관리자페이지 접근 권한 boolean타입
+
+// if (user.isLoggedIn) {
+//   if (user.role === "admin") {
+//     // 로그인이 되어있고 권한도 있는경우
+//     canAccessAdminPage = true;
+//   } else {
+//     // 로그인은 되어있지만 권한이 없는경우
+//     canAccessAdminPage = false;
+//   }
+// } else {
+//   // 로그인이 안된경우
+//   canAccessAdminPage = false;
+// }
+
+const canAccessAdminPage = user.isLoggedIn && user.role === "admin";
+console.log("canAccessAdminPage", canAccessAdminPage);
+
+console.log(
+  canAccessAdminPage
+    ? "관리자 페이지에 접근할 수 있습니다"
+    : "관리자 페이지에 접근할수 없습니다"
+);
+
+const canAccessService = user.age >= 18 || user.hasParentalConsent;
+console.log("🚀 ~ canAccessService:", canAccessService);
+
+const userInput = "김다솜";
+
+if (!userInput) {
+  // 입력값이 비어있는 경우
+  alert("입력값이 비어있습니다. 값을 입력해주세요");
+} else {
+  console.log("다음스텝으로 진행");
+}
+
+// 구조 분해 할당
+const colors = ["red", "blue"];
+
+const [_, firstColor] = colors;
+// secondColor : colors[0]
+// firstColor : colors[1]
+console.log("🚀 ~ firstColor:", firstColor);
+// console.log("🚀 ~ secondColor:", secondColor);
+
+const person = {
+  name: "정다운",
+  mbti: "INTP",
+};
+
+const { name: userName, mbti } = person;
+console.log("🚀 ~ name:", userName);
+console.log("🚀 ~ mbti:", mbti);
+
+// 미션
+const animals = ["개", "고양이", "앵무새"];
+// 고양이와 앵무새를 구조분해 할당으로 가져와서 새로운 변수에 저장하세요.
+
+const animals2 = ["하마", "코뿔소"];
+
+const copyAnimals = ["호랑이", ...animals, ...animals2];
+console.log("🚀 ~ copyAnimals:", copyAnimals);
+
+const todoItem = {
+  title: "밥먹기",
+  description: "양갈비 먹으러 갈꺼임",
+};
+
+const newTodoItem = {
+  ...todoItem,
+  isComplete: true,
+  description: "소갈비로 변경!!",
+};
+
+console.log("🚀 ~ newTodoItem:", newTodoItem);
